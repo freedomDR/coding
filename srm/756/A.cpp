@@ -6,6 +6,7 @@ using namespace std;
 class ClinderellaGirls
 {
 public:
+    //O(nlogn)
     int count(vector<int> t, vector<int> s)
     {
             vector<pair<int, int>> ts(t.size(), make_pair(0, 0));
@@ -30,9 +31,27 @@ public:
             for(int i = 0; i < t.size(); i++)
             {
                 if(left[i] == ts[i].first || right[i] <= ts[i].second) ans++;
-                else if()
             }
             return ans;
+    }
+
+    //o(n^2)
+    int count(vector<int> t, vector<int> s, int temp)
+    {
+        int ans = 0;
+        for(int i = 0; i < t.size(); i++)
+        {
+            for(int j = 0; j < t.size(); j++)
+            {
+                if(i == j) continue;
+                if(t[j] > t[i] && s[j] > s[i])
+                {
+                    ans++;
+                    break;
+                }
+            }
+        }
+        return ans;
     }
 };
 
@@ -41,7 +60,7 @@ int main()
 {
     ClinderellaGirls* app = new ClinderellaGirls();
     vector<int> t{46}, s{81};
-    cout<<app->count(t, s)<<endl;
+    cout<<app->count(t, s, 1)<<endl;
     delete app;
     return 0;
 }
