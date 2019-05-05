@@ -2,3 +2,5 @@
 *.cpp~
 *.exe
 *.cpp.un~
+*.in
+*.out
