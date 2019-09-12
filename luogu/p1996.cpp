@@ -1,20 +1,33 @@
 #include<bits/stdc++.h>
 using namespace std;
+typedef struct Node {
+    int val;
+    Node* next;
+}node;
 int main()
 {
     ios::sync_with_stdio(false);cin.tie(0);
     int m, n;
     cin >> m >> n;
-    int p[200];
-    for(int i = 0; i < m; i++) p[i] = 1;
-    for(int i = 0, st = 0; i < m; i++) {
-        for(int j = 0; j < n-1; j++) {
-            ++st;
-            if(st == m) st = 0;
-            if(p[st] == 0) j--;
-        }
-        cout << st+1 << " ";
-        p[st] = 0;
+    node *head = NULL;
+    node *last = NULL;
+    for(int i = 1; i <= m; i++) {
+        node *tmp = new node;
+        tmp->val = i; tmp->next = NULL;
+        if(head == NULL) {head = tmp;last = head;}
+        else {last->next = tmp; last = tmp;}
     }
+    if(last != NULL) last->next = head;
+    node *front = last, *cur = head;
+    while(front != cur)
+    {
+        int t = n-1;
+        while(t-- > 0) {front = cur; cur = cur->next;}
+        cout << cur->val << " ";
+        cur = cur->next;
+        delete front->next;
+        front->next = cur;
+    }
+    if(cur != NULL) cout << cur->val << endl;
     return 0;
 }
