@@ -2,43 +2,51 @@
 
 using namespace std;
 const int N = 100100;
-int a[N];
+int a[N], n;
 
 void quick_sort(int l, int r)
 {
     if(l >= r) return;
     swap(a[l], a[(l+r)/2]);
-    int t = a[l], ll = l, rr = r;
+    int flag = a[l], ll = l, rr = r;
     while(l < r)
     {
-        while(l < r && a[r] >= t) r--;
-        if(l < r) a[l++] = a[r];
-        while(l < r && a[l] <= t) l++;
-        if(l < r) a[r--] = a[l];
+        while(l<r&&a[r]>=flag) r--;
+        a[l] = a[r];
+        while(l<r&&a[l]<=flag) l++;
+        a[r] = a[l];
     }
-    a[l] = t;
-    quick_sort(ll, l-1);
-    quick_sort(l+1, rr);
+    a[l] = flag;
+    if(l-1>ll)quick_sort(ll, l-1);
+    if(rr>l+1)quick_sort(l+1, rr);
 }
-
+void quick_sort1(int left,int right)
+{
+    int i=left,j=right;
+    int mid,temp;   
+    mid=a[(i+j)/2];   
+    while(i<j)
+    {
+        while(a[i]<mid)	i++;
+        while(a[j]>mid)	j--;
+        
+        if(i<=j)
+        {
+            temp=a[i];a[i]=a[j];a[j]=temp;
+            i++;j--;            
+        }
+    }
+    if(left<j)	quick_sort(left,j);
+    if(right>i)	quick_sort(i,right);
+}
 int main()
 {
-    ios::sync_with_stdio(false);cin.tie(0);
-    int n, pos = 0;
-    map<int, int> count;
-    cin>>n;
-    for(int i = 0; i < n; i++) 
-    {
-        int v; cin>>v;
-        if(count[v] == 0) a[pos++] = v;
-        count[v]++;
-    }
-    quick_sort(0, pos-1);
-    /* sort(a, a+n); */
-    for(int i = 0; i < pos; i++) 
-    {
-        for(int j = 0; j < count[a[i]]; j++)
-            cout<<a[i]<<" ";
-    }
+    scanf("%d", &n);
+    for(int i = 0; i < n; i++) scanf("%d", &a[i]);
+    sort(a, a+n);
+    /* quick_sort(0, n-1); */
+    /* quick_sort1(0, n-1); */
+    for(int i = 0; i < n; i++) printf("%d ", a[i]);
+    printf("\n");
     return 0;
 }
