@@ -3,6 +3,7 @@
 *.exe
 *.cpp.un~
 *.in
+*.o
 *.out
 test.cpp
 zhengqun/*
