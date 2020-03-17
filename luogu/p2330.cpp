@@ -23,11 +23,9 @@ int main()
         cin >> e[i].u >> e[i].v >> e[i].c;
     sort(e+1, e+m+1, [](Edge &e1, Edge &e2) {return e1.c < e2.c;});
     int l = e[1].c, r = e[m].c;
-    cout << l << " " << r << endl;
     while(l < r)
     {
         int mid = (l+r)/2;
-        cout << mid << endl;
         for(int i = 1; i <= n; i++) fa[i] = i;
         for(int i = 1; i <= m; i++)
         {
