@@ -17,7 +17,7 @@ int main()
         {
             tmp -= arr[n-i];
         }
-        if(i >= k)
+        if(i >= k-1)
         {
             minn = min(minn, tmp);
             maxx = max(maxx, tmp);
@@ -25,7 +25,6 @@ int main()
         }
     }
     double ret = ans*1.0/k;
-    cout << ans << endl;
     cout << ret << endl;
     return 0;
 }
