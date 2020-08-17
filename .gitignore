@@ -10,3 +10,6 @@ zhengqun/*
 **/build
 c++_primer/*
 .vscode/
+*.out
+*.dSYM
+*.txt
