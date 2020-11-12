@@ -22,11 +22,11 @@ int main()
         {
             int left = pos['p'-'a'][i];
             bool f = true;
-            for(int j = 1; j < 10; j++)
+             for(int j = 1; j < 10; j++)
             {
                 auto it = upper_bound(pos[p[j]-'a'].begin(), pos[p[j]-'a'].end(), left);
                 if(it == pos[p[j]-'a'].end()) {f=false;break;}
-                left = *it
+                left = *it;
             }
             cout << endl;
             if(f) ans = min(ans, left-pos['p'-'a'][i]+1);

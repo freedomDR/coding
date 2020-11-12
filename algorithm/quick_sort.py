@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import random
+import subprocess
+
 
 def quick_sort(arr, lo, hi):
     if(lo>=hi): return 
