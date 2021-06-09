@@ -3,36 +3,33 @@
 
 using namespace std;
 
-const int N = 10050;
+const int N = 5010;
 
-int x[N][N];
-int sums[N][N];
+int a[N][N];
+int n, m, x, y, v; 
 
 int main()
 {
     #ifdef LOCAL
         freopen("luogu/p2280.in", "r", stdin);
     #endif
-    int n, m;
     cin >> n >> m;
-    for(int i = 0; i < m; i++)
+    for(int i = 0; i < n; i++)
     {
-        int xp, yp; cin >> xp >> yp;
-        x[++xp][++yp] = m;
+        cin >> x >> y >> v;
+        x++; y++;
+        a[x][y] = v;
     }
     int ans = 0;
-    for(int i = 1; i <= n; i++)
+    for(int i = 1; i < N; i++)
     {
-        for(int j = 1; j <= n; j++)
+        for(int j = 1; j < N; j++)
         {
-            sums[i][j] = x[i][j]+sums[i-1][j]+sums[i][j-1]-sums[i-1][j-1];
-            int tmp = sums[i][j];
-            if(i-m>=0) tmp-=sums[i-m][j];
-            if(j-m>=0) tmp-=sums[i][j-m];
-            if(i-m>=0&&j-m>=0) tmp+=sums[i-m][j-m];
-            ans = max(ans, tmp);
+            a[i][j] += a[i-1][j]+a[i][j-1]-a[i-1][j-1];
+            if(i>=m&&j>=m)
+                ans = max(ans, a[i][j]-a[i-m][j]-a[i][j-m]+a[i-m][j-m]);
         }
     }
-    cout << ans << endl;
+    cout << ans;
     return 0;
 }
