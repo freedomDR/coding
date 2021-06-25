@@ -13,3 +13,4 @@ c++_primer/*
 *.out
 *.dSYM
 *.txt
+.DS_Store
