@@ -15,7 +15,7 @@ for i in range(n):
 max_v = 0.0
 
 
-def calD(i, j):
+def calDistance(i, j):
     return math.sqrt((point[i][0]-point[j][0]) ** 2 + (point[i][1]-point[j][1]) ** 2)
 
 
@@ -25,7 +25,7 @@ def findMax(i):
     d = min(d1, d2)
     for j in range(n):
         if(j != i and used[j] == True):
-            d = min(d, max(calD(i, j)-r[j], 0.0))
+            d = min(d, max(calDistance(i, j)-r[j], 0.0))
     return d
 
 
