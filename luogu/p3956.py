@@ -38,6 +38,7 @@ def bfs():
                 heapq.heappush(pq, (new_c, nx, ny))
 
 bfs()
+
 if(cb[n-1][n-1]==0):
     c1 = cost[n-2][n-1]+2
     c2 = cost[n-1][n-2]+2
