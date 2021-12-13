@@ -12,5 +12,4 @@ c++_primer/*
 .vscode/
 *.out
 *.dSYM
-*.txt
 .DS_Store
