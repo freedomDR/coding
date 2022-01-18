@@ -13,3 +13,4 @@ c++_primer/*
 *.out
 *.dSYM
 .DS_Store
+.vim
