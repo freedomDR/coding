@@ -9,4 +9,3 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_subdirectory(luogu)
 add_subdirectory(codeforces)
-add_subdirectory(test)
