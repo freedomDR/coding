@@ -3,6 +3,7 @@
 #include<iostream> 
 #include<algorithm>
 #include<cmath>
+#include<bits/stdc++.h>
 using namespace std;
 int main()
 {
@@ -20,5 +21,5 @@ int main()
             return 0;
         }
     }
-    cout<<"No"<<endl<<s1<<endl;//时间都用完了还没跑出去，输出“No”和s1的值，（由于闪现可走距离一旦大于跑步的跑步的距离就会被替换，这时跑的距离远的一定是s1）
+    cout<<"No"<<endl<<s1<<endl;//时间都用完了还没跑出去，输出“No”和s1的值，（由于闪现可走距离一旦大于跑步的跑步的距离就会被替换，这时跑的距离远的一定是s1）:Q
 }
