@@ -4,7 +4,7 @@ using namespace std;
 
 void b_sort(vector<int> & arr, int l, int r)
 {
-    cout << l << " " << r << endl;
+    //cout << l << " " << r << endl;
     if(l >= r) return;
     int mid = (l+r)/2;
     int ll = l, rr = r;
