@@ -12,5 +12,8 @@ c++_primer/*
 .vscode/
 *.out
 *.dSYM
-*.txt
 .DS_Store
+.vim
+*.txt
+test/*
+.cache
