@@ -17,3 +17,4 @@ c++_primer/*
 *.txt
 test/*
 .cache
+.venv
