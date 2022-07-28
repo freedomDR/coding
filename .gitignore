@@ -14,6 +14,5 @@ c++_primer/*
 *.dSYM
 .DS_Store
 .vim
-*.txt
 test/*
 .cache
