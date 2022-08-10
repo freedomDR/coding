@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <fmt/core.h>
 
 std::string slove(std::string s)
 {
@@ -7,14 +8,14 @@ std::string slove(std::string s)
         if(s[i] == '+') sign = 1;
         else if(s[i] == '-') sign = -1;
         else if(s[i] == '=') {dir = -1; sign = 1; tmpNum=1;}
-        else if(s[i] == 'x') numX += dir*sign*tmpNum;
+        else if(s[i] == 'x') {numX += dir*sign*tmpNum; tmpNum = 1; fmt::print("numX: {}\n", numX);}
         else {
             tmpNum = 0;
             while(i < (int)s.size() && s[i] >= '0' && s[i] <= '9') {
-                tmpNum += tmpNum*10 + (s[i]-'0');
+                tmpNum = tmpNum*10 + (s[i]-'0');
                 i++;
             }
-            if(i == (int)s.size() || s[i] != 'x') {num += dir*sign*tmpNum; tmpNum = 1;}
+            if(i == (int)s.size() || s[i] != 'x') {num -= dir*sign*tmpNum; tmpNum = 1;}
             i--;
             std::cout << num << std::endl;
         }
@@ -22,7 +23,7 @@ std::string slove(std::string s)
     }
     std::cout << numX << " " << num << std::endl;
 
-    return numX == 0 ? (num == 0 ? "Infinite solutions" : "No solution"): "x="+std::to_string(-num/numX);
+    return numX == 0 ? (num == 0 ? "Infinite solutions" : "No solution"): "x="+std::to_string(num/numX);
 
 }
 
