@@ -17,3 +17,4 @@ c++_primer/*
 test/*
 .cache
 .venv
+build/
