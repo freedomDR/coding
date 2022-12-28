@@ -6,7 +6,6 @@
 *.o
 *.out
 test.cpp
-zhengqun/*
 **/build
 c++_primer/*
 .vscode/
