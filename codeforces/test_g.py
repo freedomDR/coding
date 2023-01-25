@@ -19,4 +19,4 @@ if(__name__ == '__main__'):
     logging.info(len(arr))
     f.close()
 
-    
+
