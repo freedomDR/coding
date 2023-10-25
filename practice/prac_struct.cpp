@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+
+typedef struct AA
+{
+    int val1;
+    int val2;
+}A;
+
+int main()
+{
+    AA a[2] = {{1,2}, {3,4}};
+    A b[2] = {{1,2}, {3,4}};
+    for(int i = 0; i < 2; i++)
+    {
+        std::cout << a[i].val1 << " " << a[i].val2 << std::endl;
+        std::cout << b[i].val1 << " " << b[i].val2 << std::endl;
+    }
+    return 0;
+}
