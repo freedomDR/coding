@@ -17,3 +17,7 @@ test/*
 .cache
 .venv
 build/
+*.ii
+*.i
+*.o
+*.s
