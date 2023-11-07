@@ -8,38 +8,59 @@ typedef struct InternalNode
     InternalNode(int val_): val(val_) {}
 }Node;
 
-std::shared_ptr<Node> initSingleLinkList()
+Node* initSingleLinkList()
 {
-    auto head = std::make_shared<Node>(-1);
+    Node *head = new Node(-1);
     return head;
 }
 
-void singleLinkList(std::shared_ptr<Node> head, int v)
+void singleLinkListAdd(Node *head, int v)
 {
     if(head == nullptr)
     {
         std::cerr << "head is nullptr" << std::endl;
         return;
     }
-    auto tmp_head = head.get();
-    while(tmp_head->next != nullptr)
+    while(head->next != nullptr)
     {
-        std::cout << tmp_head->val << std::endl;
-        tmp_head = tmp_head->next;
+        head = head->next;
     }
-    tmp_head->next = std::make_shared<Node>(v).get();
+    head->next = new Node(v);
+}
+
+void printLinkList(Node *head)
+{
+    std::cout << "LinkList: ";
+    int cnt = 0;
+    while(head!=nullptr)
+    {
+        cnt++;
+        std::cout << head->val;
+        head = head->next;
+        if(cnt!=1&&head!=nullptr) std::cout << "->";
+    }
+    std::cout << std::endl;
+}
+
+void deleteLinkList(Node *node)
+{
+    while(node!=nullptr)
+    {
+        Node *tmp = node;
+        node = node->next;
+        delete tmp;
+    }
 }
 
 void testSingleLinkList()
 {
     std::cout << "Test single link list" << std::endl;
-    auto head = initSingleLinkList();
+    Node *head = initSingleLinkList();
     std::cout << "head->val: " << head->val << "\nhead->next: " << head->next << std::endl;
     for(int i = 1; i < 10; i++)
-    {
-        singleLinkList(head, i);
-        std::cout << "head->val: " << head->val << "\nhead->next: " << head->next << std::endl;
-    }
+        singleLinkListAdd(head, i);
+    printLinkList(head);
+    deleteLinkList(head);
 }
 
 int main()
