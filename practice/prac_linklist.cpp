@@ -8,7 +8,7 @@ typedef struct InternalNode
     InternalNode(int val_): val(val_) {}
 }Node;
 
-Node* initSingleLinkList()
+Node* initLinkList()
 {
     Node *head = new Node(-1);
     return head;
@@ -31,13 +31,11 @@ void singleLinkListAdd(Node *head, int v)
 void printLinkList(Node *head)
 {
     std::cout << "LinkList: ";
-    int cnt = 0;
     while(head!=nullptr)
     {
-        cnt++;
         std::cout << head->val;
         head = head->next;
-        if(cnt!=1&&head!=nullptr) std::cout << "->";
+        if(head!=nullptr) std::cout << "->";
     }
     std::cout << std::endl;
 }
@@ -52,19 +50,30 @@ void deleteLinkList(Node *node)
     }
 }
 
-void testSingleLinkList()
+void removeNode(Node *head, Node *node)
+{
+    while(head!=nullptr&&head->next!=node)
+    {
+        head = head->next;
+    }
+    head->next = head->next->next;
+    delete node;
+}
+
+void testLinkList()
 {
     std::cout << "Test single link list" << std::endl;
-    Node *head = initSingleLinkList();
+    Node *head = initLinkList();
     std::cout << "head->val: " << head->val << "\nhead->next: " << head->next << std::endl;
     for(int i = 1; i < 10; i++)
         singleLinkListAdd(head, i);
+    removeNode(head, head->next);
     printLinkList(head);
     deleteLinkList(head);
 }
 
 int main()
 {
-    testSingleLinkList();
+    testLinkList();
     return 0;
 }
