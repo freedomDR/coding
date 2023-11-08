@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <cstdlib>
 
 typedef struct InternalNode
 {
@@ -82,19 +83,50 @@ Node* reverseV2(Node *node)
     return last_node;
 }
 
+Node* randomGenarateListNode()
+{
+    Node *dummy = new Node(-1);
+    Node *node = dummy;
+    int sz = std::min(std::rand(), 20);
+    for(int i = 0; i < sz; i++)
+    {
+        node->next = new Node(std::rand()%20);
+        node = node->next;
+    }
+    node = dummy->next;
+    delete dummy;
+    return node;
+}
+
+Node* reverseListSome(Node *head, int l, int r)
+{
+
+}
+
+int getLinkListLength(Node *head)
+{
+    if(head==nullptr)
+        return 0;
+    return 1+getLinkListLength(head->next);
+}
+
 void testLinkList()
 {
     std::cout << "Test single link list" << std::endl;
-    Node *head = nullptr;
-    for(int i = 1; i < 10; i++)
-        head = singleLinkListAdd(head, i);
+    Node *head = randomGenarateListNode();
+    printLinkList(head);
+    std::cout << "删除第二个节点" << std::endl;
     removeNode(head, head->next);
     printLinkList(head);
+    std::cout << "反转链表" << std::endl;
     head = reverse(head);
     printLinkList(head);
+    std::cout << "反转链表" << std::endl;
     head = reverseV2(head);
     printLinkList(head);
     deleteLinkList(head);
+    int sz = getLinkListLength(head);
+    
 }
 
 int main()
