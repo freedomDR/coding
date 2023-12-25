@@ -21,3 +21,4 @@ build/
 *.i
 *.o
 *.s
+debug*
