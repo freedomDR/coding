@@ -8,7 +8,6 @@
 test.cpp
 **/build
 c++_primer/*
-.vscode/
 *.out
 *.dSYM
 .DS_Store
