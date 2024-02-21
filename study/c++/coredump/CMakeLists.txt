@@ -1,0 +1,1 @@
+add_executable(coredump_test coredump_test.cpp)

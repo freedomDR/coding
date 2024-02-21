@@ -6,6 +6,7 @@ project(coding)
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1) # Write compile_commands.json
 
 # specify the C++ standard
+# set(CMAKE_CXX_STANDARD gun++2a)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 

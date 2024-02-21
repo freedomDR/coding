@@ -1,0 +1,1 @@
+add_executable(lambda_test lambda.cpp)
