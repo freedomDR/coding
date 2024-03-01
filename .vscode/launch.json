@@ -4,11 +4,24 @@
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "type": "lldb",
             "request": "launch",
             "name": "Debug lambda",
             "program": "${workspaceFolder}/build/study/c++/lambda/lambda_test",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "initCommands": [
+				"process handle -p false -s false -n false SIGUSR1",
+				"process handle -p false -s false -n false SIGUSR2"
+			]
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug leetcode 2369",
+            "program": "${workspaceFolder}/build/leetcode/2369",
             "args": [],
             "cwd": "${workspaceFolder}",
             "initCommands": [

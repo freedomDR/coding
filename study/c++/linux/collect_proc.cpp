@@ -91,14 +91,5 @@ int main()
     auto in_docker = judgeEnv();
     collect_cpu();
     test();
-
-
-test
-test
-test
-test
-test
-test
-
     return 0;
 }
