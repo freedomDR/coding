@@ -31,6 +31,18 @@
         },
         {
             "type": "lldb",
+            "request": "launch",
+            "name": "Debug fenwick",
+            "program": "${workspaceFolder}/build/study/graph/fenwick",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "initCommands": [
+				"process handle -p false -s false -n false SIGUSR1",
+				"process handle -p false -s false -n false SIGUSR2"
+			]
+        },
+        {
+            "type": "lldb",
             "request": "custom",
             "name": "Open a core dump",
             "initCommands": [

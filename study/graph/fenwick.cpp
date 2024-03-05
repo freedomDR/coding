@@ -25,6 +25,7 @@ class FenWick
                 res += tree[pos];
                 pos -= lowbit(pos);
             }
+            return res;
         }
 
     private:
@@ -37,5 +38,11 @@ class FenWick
 
 int main()
 {
+    FenWick t(10);
+    for(int i = 1; i < 10; i++)
+    {
+        t.add(i, i);
+        std::cout << t.get(i) << std::endl;
+    }
     return 0;
 }
