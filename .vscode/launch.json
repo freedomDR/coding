@@ -43,6 +43,18 @@
         },
         {
             "type": "lldb",
+            "request": "launch",
+            "name": "Debug lambda test",
+            "program": "${workspaceFolder}/build/study/c++/lambda/lambda_test",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "initCommands": [
+				"process handle -p false -s false -n false SIGUSR1",
+				"process handle -p false -s false -n false SIGUSR2"
+			]
+        },
+        {
+            "type": "lldb",
             "request": "custom",
             "name": "Open a core dump",
             "initCommands": [
