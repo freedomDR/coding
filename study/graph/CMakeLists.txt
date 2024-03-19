@@ -1,3 +1,5 @@
 add_executable(graphTest graph.h graph.cpp graphTest.cpp)
 add_executable(floyd graph.h graph.cpp floyd.cpp)
 add_executable(fenwick fenwick.cpp)
+add_executable(bellmanFord graph.h graph.cpp bellman-ford.cpp)
+add_executable(dijkstra graph.h graph.cpp dijkstra.cpp)
