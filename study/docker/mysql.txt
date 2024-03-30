@@ -1,0 +1,5 @@
+docker run --detach --name mariadb --env MARIADB_ROOT_PASSWORD=root -p 3316:3306  mariadb:latest
+
+docker inspect mariadb | grep IPAddress
+
+docker run -it --rm mariadb mariadb -hxxxx --port 3306 -uroot -p

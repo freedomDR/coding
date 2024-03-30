@@ -1,3 +1,6 @@
 add_executable(collect_proc collect_proc.cpp)
 #add_executable(test test.cpp)
 add_executable(io_test io_test.cpp)
+add_executable(test test.cpp)
+add_executable(io_test io_test.cpp)
+add_executable(rusage_test rusage_test.cpp)
