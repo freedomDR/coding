@@ -35,5 +35,6 @@ vector<TreeNode*> allPossibleFBT(int n)
 
 int main()
 {
+    allPossibleFBT(7);
     return 0;
 }
