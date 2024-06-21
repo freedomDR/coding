@@ -1,0 +1,4 @@
+docker run -dit --name dongrui_ubuntu -v /data/dongrui/share/:/data/dongrui/share -p 3576:22 ubuntu
+
+sudo apt-get update
+sudo apt-get install git cmake ccache python3 ninja-build nasm yasm gawk lsb-release wget software-properties-common gnupg
