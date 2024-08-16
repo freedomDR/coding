@@ -33,10 +33,26 @@ int testFunc(const int &a = tt::ONE) {
     return 1;
 }
 
+void testFunc2(int a)
+{
+    if(a > 10) {
+        return;
+    }
+    std::cout << "hell" << "\n";
+}
+
 class TestClass {
    public:
     static int v;
     void test() { std::cout << v << std::endl; }
+    std::vector<int> arr;
+    int * ptr;
+};
+
+class TestClass2 
+{
+    public:
+        int v;
 };
 
 int TestClass::v = -1;
@@ -69,9 +85,38 @@ int main(int argc, char *argv[]) {
     TestClass t;
     t.test();
 
-    for (int i = 0; i < 1000; i++) {
-        std::this_thread::sleep_for(std::chrono::seconds(10));
-    }
+    // for (int i = 0; i < 1000; i++) {
+    //     std::this_thread::sleep_for(std::chrono::seconds(10));
+    // }
 
+    TestClass test_class;
+    std::cout << test_class.arr.size() << " " << test_class.ptr << " " << test_class.v << "\n";
+    TestClass2 test_class2;
+    std::cout << test_class2.v << "\n";
+
+    testFunc2(20);
+
+    char * s1 = "abs";
+    std::string s2(s1, 0);
+    std::cout << "s2: *" << s2 << "*\n";
+    
+    struct TmpData 
+    {
+        int v1;
+    };
+
+    auto test_f1 = []() -> const TmpData *
+    {
+        std::shared_ptr<TmpData> tmp = std::make_shared<TmpData>(1);
+        
+        return tmp.get();
+    };
+
+    const auto * tmp_data_ptr = test_f1();
+    std::cout << tmp_data_ptr->v1 << std::endl;
+
+    int test_int = 1;
+    auto * test_int_ptr = &test_int;
+    std::cout << *test_int_ptr << std::endl;
     return 0;
 }
