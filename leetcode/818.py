@@ -1,6 +1,7 @@
 import logging
 from collections import defaultdict
 import heapq
+import math
 
 logging.basicConfig(format='%(threadName)s %(asctime)s %(levelname)s line %(lineno)s : %(message)s',datefmt='%Y-%m-%d %H:%M:%S', level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -25,6 +26,21 @@ class Solution:
                 dist[x][1] = cost+1
                 heapq.heappush(pq, [cost+1, x, 1])           
         return 0
+    
+    def slove2(self, target: int) -> int:
+        dp = [math.inf] * (target+3)
+        dp[0] = 0
+        for i in range(1, target+1):
+            forward_step = 1
+            while (1<<forward_step)-1 < 2*i:
+                forward_distance = (1<<forward_step)-1
+                if (forward_distance == i):
+                    dp[i] = forward_step
+                    break 
+                elif (forward_distance > i):
+                    dp[i] = min(dp[i], forward_step + 1 + dp[for])    
+            
+        
     
 s = Solution()
 logger.info(s.racecar(3))

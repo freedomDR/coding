@@ -22,3 +22,5 @@ build/
 *.s
 debug*
 test.txt
+*.exe_out
+venv/
