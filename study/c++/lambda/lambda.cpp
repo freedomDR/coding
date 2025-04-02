@@ -12,11 +12,11 @@ using namespace std;
 
 void ff(std::function<void()> job) { job(); }
 
-int main() {
+
+void test1() 
+{
     std::vector<std::shared_ptr<std::promise<void>>> promises;
     promises.reserve(10);
-    //std::vector<std::promise<void>> promises3(10, std::promise<void>());
-    //std::vector<std::unique_ptr<std::promise<void>>> promises4(10, std::make_unique<std::promise<void>>());
     std::vector<std::thread> ts;
     for (int i = 0; i < 10; i++)
     {
@@ -42,7 +42,31 @@ int main() {
         promise->get_future().get();
 
     std::cout << "cur: " << std::this_thread::get_id() << std::endl;
-    std::cout << "ok" << endl;
+}
 
+void test2()
+{
+#ifdef __cpp_explicit_this_parameter
+    auto func = [](this auto self, int remain = 10) -> void
+    {
+        if (remain == 0)
+            return;
+        self(remain-1);
+    };
+    func(100);
+#else
+    auto func = [](auto self, int remain) -> void {
+        if (remain == 0)
+            return;
+        self(self, remain-1);
+    };
+    func(func, 100); 
+#endif
+}
+
+int main() 
+{
+    // test1();
+    test2();
     return 0;
 }
