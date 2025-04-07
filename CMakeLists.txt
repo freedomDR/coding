@@ -9,6 +9,13 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS 1) # Write compile_commands.json
 # set(CMAKE_CXX_STANDARD gun++2a)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+set(CMAKE_C_COMPILER gcc)
+set(CMAKE_CXX_COMPILER g++)
+
+#set(CMAKE_C_COMPILER clang)
+#set(CMAKE_CXX_COMPILER clang++)
 
 add_subdirectory(study)
 # add_subdirectory(luogu)

@@ -12,14 +12,11 @@ using namespace std;
 
 void ff(std::function<void()> job) { job(); }
 
-
-void test1() 
-{
+void test1() {
     std::vector<std::shared_ptr<std::promise<void>>> promises;
     promises.reserve(10);
     std::vector<std::thread> ts;
-    for (int i = 0; i < 10; i++)
-    {
+    for (int i = 0; i < 10; i++) {
         auto promise = std::make_shared<std::promise<void>>();
         promises.emplace_back(promise);
         auto s = "hello";
@@ -36,36 +33,31 @@ void test1()
         };
         ts.push_back(std::thread(ff, f));
     }
-    for(auto & t:ts)
-        t.join();
-    for(auto & promise:promises)
-        promise->get_future().get();
+    for (auto& t : ts) t.join();
+    for (auto& promise : promises) promise->get_future().get();
 
     std::cout << "cur: " << std::this_thread::get_id() << std::endl;
 }
 
-void test2()
-{
+void test2() {
 #ifdef __cpp_explicit_this_parameter
-    auto func = [](this auto self, int remain = 10) -> void
-    {
-        if (remain == 0)
-            return;
-        self(remain-1);
+    auto func = [](this auto&& self, int remain = 10) -> void {
+        cout << "this auto self" << endl;
+        if (remain == 0) return;
+        self(remain - 1);
     };
-    func(100);
+    func(10);
 #else
     auto func = [](auto self, int remain) -> void {
-        if (remain == 0)
-            return;
-        self(self, remain-1);
+        cout << "auto self" << endl;
+        if (remain == 0) return;
+        self(self, remain - 1);
     };
-    func(func, 100); 
+    func(func, 10);
 #endif
 }
 
-int main() 
-{
+int main() {
     // test1();
     test2();
     return 0;
