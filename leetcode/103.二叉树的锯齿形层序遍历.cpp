@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=104 lang=cpp
+ * @lc app=leetcode.cn id=103 lang=cpp
  *
- * [104] 二叉树的最大深度
+ * [103] 二叉树的锯齿形层序遍历
  */
 
 // @lc code=start
@@ -21,28 +21,27 @@ using namespace std;
 
 class Solution {
 public:
-    int maxDepth(TreeNode* root) {
-        // if (!root)
-        //     return 0;
-        // return 1 + max(maxDepth(root->left), maxDepth(root->right));
-        if (!root)
-            return 0;
+    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+        vector<vector<int>> ans;
+        if (!root) return ans;
         queue<TreeNode*> q;
         q.push(root);
-        int dep = 0;
         while (!q.empty()) {
             int size = q.size();
-            for (int i = 0; i < size; ++i) {
+            vector<int> level;
+            for (int i = 0; i < size; i++) {
                 TreeNode* node = q.front();
                 q.pop();
-                if (node->left)
-                    q.push(node->left);
-                if (node->right)
-                    q.push(node->right);
+                level.push_back(node->val);
+                if (node->left) q.push(node->left);
+                if (node->right) q.push(node->right);
             }
-            dep++;
+            if (ans.size() % 2 == 1) {
+                reverse(level.begin(), level.end());
+            }
+            ans.push_back(level);
         }
-        return dep;
+        return ans;
     }
 };
 // @lc code=end
