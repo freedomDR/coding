@@ -45,8 +45,21 @@ public:
             self(node->left, true, node);
             self(node->right, false, node);
         };
-        dfs(root, true, nullptr);
-        if (!to_delete_set.count(root->val)) 
+        // dfs(root, true, nullptr);
+        // if (!to_delete_set.count(root->val)) 
+        //     ans.push_back(root);
+
+        auto dfs2 = [&](this auto && self, TreeNode * node) -> TreeNode * {
+            if (!node)
+                return nullptr;
+            node->left = self(node->left);
+            node->right = self(node->right);
+            if (!to_delete_set.contains(node->val)) return node;
+            if (node->left) ans.push_back(node->left);
+            if (node->right) ans.push_back(node->right);
+            return nullptr;
+        };
+        if (dfs2(root))
             ans.push_back(root);
         return ans;
     }
