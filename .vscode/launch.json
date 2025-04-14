@@ -20,7 +20,7 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug leetcode",
-            "program": "${workspaceFolder}/build/leetcode/2369",
+            "program": "${workspaceFolder}/build/leetcode/301",
             "args": [],
             "cwd": "${workspaceFolder}",
             "initCommands": [
