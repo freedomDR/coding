@@ -4,7 +4,6 @@
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-
         {
             "type": "lldb",
             "request": "launch",
@@ -20,7 +19,7 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug leetcode 2369",
+            "name": "Debug leetcode",
             "program": "${workspaceFolder}/build/leetcode/2369",
             "args": [],
             "cwd": "${workspaceFolder}",
@@ -55,18 +54,35 @@
         },
         {
             "type": "lldb",
-            "request": "custom",
+            "request": "launch",
             "name": "Open a core dump",
+            "program": "${input:binaryProgram}",
             "initCommands": [
                 "target create -c ${input:coreFileName}"
+            ]
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug binary program",
+            "program": "${input:binaryProgram}",
+            "args": [],
+            "initCommands": [
+                "process handle -p false -s false -n false SIGUSR1",
+                "process handle -p false -s false -n false SIGUSR2"
             ]
         }
     ],
     "inputs": [
         {
-          "id": "coreFileName",
-          "type": "promptString",
-          "description": "Enter core file path"
+            "id": "coreFileName",
+            "type": "promptString",
+            "description": "Enter core file path"
+        },
+        {
+            "id": "binaryProgram",
+            "type": "promptString",
+            "description": "Enter binary program path"
         }
       ]
 }
