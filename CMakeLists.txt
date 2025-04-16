@@ -17,6 +17,11 @@ set(CMAKE_CXX_COMPILER g++)
 #set(CMAKE_C_COMPILER clang)
 #set(CMAKE_CXX_COMPILER clang++)
 
+# 设置构建类型为 Debug
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug CACHE STRING "Choose the type of build." FORCE)
+endif()
+
 add_subdirectory(study)
 # add_subdirectory(luogu)
 # add_subdirectory(codeforces)

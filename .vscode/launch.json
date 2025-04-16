@@ -20,7 +20,7 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug leetcode",
-            "program": "${workspaceFolder}/build/leetcode/301",
+            "program": "${workspaceFolder}/leetcode/301.删除无效的括号.exe_out",
             "args": [],
             "cwd": "${workspaceFolder}",
             "initCommands": [

@@ -83,26 +83,26 @@ public:
     }
 };
 
-// int main()
-// {
-//     Solution s;
-//     // (a)())()  )(
-//     auto res = s.removeInvalidParentheses("x(");
-//     cout << res.size() << endl;
-//     for (auto & s:res)
-//         cout << s << "***";
-//     cout << endl;
-//     res = s.removeInvalidParentheses("(a)())()");
-//     cout << res.size() << endl;
-//     for (auto & s:res)
-//         cout << s << "***";
-//     cout << endl;
-//     res = s.removeInvalidParentheses(")(");
-//     cout << res.size() << endl;
-//     for (auto & s:res)
-//         cout << s << "***";
-//     cout << endl;
-//     return 0;
-// }
+int main()
+{
+    Solution s;
+    // (a)())()  )(
+    auto res = s.removeInvalidParentheses("x(");
+    cout << res.size() << endl;
+    for (auto & s:res)
+        cout << s << "***";
+    cout << endl;
+    res = s.removeInvalidParentheses("(a)())()");
+    cout << res.size() << endl;
+    for (auto & s:res)
+        cout << s << "***";
+    cout << endl;
+    res = s.removeInvalidParentheses(")(");
+    cout << res.size() << endl;
+    for (auto & s:res)
+        cout << s << "***";
+    cout << endl;
+    return 0;
+}
 // @lc code=end
 
