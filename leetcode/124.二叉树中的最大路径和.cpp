@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode.cn id=543 lang=cpp
+ * @lc app=leetcode.cn id=124 lang=cpp
  *
- * [543] 二叉树的直径
+ * [124] 二叉树中的最大路径和
  */
 
 // @lc code=start
@@ -16,18 +16,19 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
-    int diameterOfBinaryTree(TreeNode* root) {
-        int ans = 0;
-        auto dfs = [&](this auto self, TreeNode* node) -> int
-        {
-            if (!node)
-                return -1;
-            auto l = self(node->left)+1;
-            auto r = self(node->right)+1;
-            ans = max(ans, l+r);
-            return max(l, r);
+    int maxPathSum(TreeNode* root) {
+        int ans = INT_MIN;
+        auto dfs = [&](this auto && self, TreeNode * node) -> int {
+            if (!node) return 0;
+            auto l = self(node->left);
+            auto r = self(node->right);
+            ans = max(ans, l+r+node->val);
+            return max(0, max(l, r) + node->val);
         };
         dfs(root);
         return ans;
