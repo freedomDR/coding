@@ -2,7 +2,7 @@
     "code-runner.executorMap": {
 
         "javascript": "node",
-        "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+        "java": "cd $dir && javac -Xlint:unchecked $fileName && java $fileNameWithoutExt",
         "c": "cd $dir && gcc $fileName -g -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "zig": "zig run",
         "cpp": "cd $dir && clang++ $fileName -lstdc++ -lfmt -std=c++23 -g -o $fileNameWithoutExt.exe_out && $dir$fileNameWithoutExt.exe_out",

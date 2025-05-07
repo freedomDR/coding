@@ -24,3 +24,5 @@ debug*
 test.txt
 *.exe_out
 venv/
+*.class
+*.txt
